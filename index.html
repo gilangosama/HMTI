@@ -70,6 +70,55 @@
         .bgc {
           background: linear-gradient(90.33deg, #1746f9 -0.22%, #1a3ab3 82.88%, #1e2748 113.74%);
         }
+
+        .slides .slide {
+          display: none;
+        }
+
+        .slides .slide img {
+          width: 100%;
+          animation-name: fade;
+          animation-duration: 1.5s;
+        }
+
+        .slides .navigation {
+          transform: translate(-50%, -50%);
+        }
+
+        .slides .navigation .prev,
+        .slides .navigation .next {
+          cursor: pointer;
+          padding: 16px;
+          font-weight: bold;
+          font-size: 20px;
+          color: white;
+          background: rgba(0, 0, 0, 0.2);
+          user-select: none;
+          transition: 0.6s ease;
+        }
+
+        .slides .navigation .prev:hover,
+        .slides .navigation .next:hover {
+          background: rgba(0, 0, 0, 1);
+        }
+
+        @keyframes fade {
+          from {
+            opacity: 0.3;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        /* @media (max-width: 576px) {
+          .slides .navigation .prev,
+          .slides .navigation .next {
+            font-size: 12px;
+            padding: 7px;
+          }
+        } */
+
         @media screen and (max-width: 1024px) {
           nav {
             left: -100%;
@@ -100,6 +149,11 @@
           footer {
             z-index: -1;
           }
+          .slides .navigation .prev,
+          .slides .navigation .next {
+            font-size: 18px;
+            padding: 13px;
+          }
         }
 
         @media screen and (max-width: 750px) {
@@ -127,6 +181,11 @@
           }
           nav.active {
             left: 0;
+          }
+          .slides .navigation .prev,
+          .slides .navigation .next {
+            font-size: 15px;
+            padding: 10px;
           }
         }
       }
@@ -202,16 +261,37 @@
     </header>
 
     <section>
-      <div class="container mx-auto">
-        <div class="h-full w-full text-center">
-          <div class="relative -top-10 py-10 h-[600px]">
-            <img src="/assets/img-slide-1.jpg" alt="" />
-            <h1 class="relative -top-96 z-10 font-bold text-white font-raleway text-[40px]">Selamat Data di Website HMTI</h1>
-            <h2 class="relative -top-96 font-medium text-white font-raleway text-[20px]">Himpunan Mahasiswa Teknik Informatika</h2>
-            <h2 class="relative -top-96 font-medium text-white font-raleway text-[20px]">Universitas Nusa Putra</h2>
-            <button class="flex items-center gap-2 Kontak py-2 px-6 bg-primary rounded-full text-[15px] font-raleway font-semibold text-white relative -top-80 mx-auto">Selengkapnya<img src="/assets/arrow.svg" alt="" /></button>
+      <div class="slides w-full relative">
+        <div class="slide">
+          <img class="w-full" src="/assets/img-slide-1.jpg" alt="" />
+          <div class="absolute text-center text-white top-[35%] left-[28%] font-raleway">
+            <h1 class="font-bold text-[40px]">Selamat Data di Website HMTI</h1>
+            <h3>Himpunan Mahasiswa Teknik Informatika</h3>
+            <h3>Universitas Nusa Putra</h3>
+            <button class="flex items-center gap-2 Kontak py-2 px-6 bg-primary rounded-full text-[15px] font-raleway font-semibold max-sm:hidden text-white mx-auto mt-10">Selengkapnya<img src="/assets/arrow.svg" alt="" /></button>
           </div>
+        </div>
+        <div class="slide">
+          <img class="w-full" src="/assets/img-slide-2.jpg" alt="" />
+          <div class="absolute text-center text-white top-[35%] left-[28%] font-raleway">
+            <h1 class="font-bold text-[40px]">Selamat Data di Website HMTI</h1>
+            <h3>Himpunan Mahasiswa Teknik Informatika</h3>
+            <h3>Universitas Nusa Putra</h3>
+            <button class="flex items-center gap-2 Kontak py-2 px-6 bg-primary rounded-full text-[15px] font-raleway font-semibold max-sm:hidden text-white mx-auto mt-10">Selengkapnya<img src="/assets/arrow.svg" alt="" /></button>
           </div>
+        </div>
+        <div class="slide">
+          <img class="w-full" src="/assets/img-slide-3.jpg" alt="" />
+          <div class="absolute text-center text-white top-[35%] left-[28%] font-raleway">
+            <h1 class="font-bold text-[40px]">Selamat Data di Website HMTI</h1>
+            <h3>Himpunan Mahasiswa Teknik Informatika</h3>
+            <h3>Universitas Nusa Putra</h3>
+            <button class="flex items-center gap-2 Kontak py-2 px-6 bg-primary rounded-full text-[15px] font-raleway font-semibold max-sm:hidden text-white mx-auto mt-10">Selengkapnya<img src="/assets/arrow.svg" alt="" /></button>
+          </div>
+        </div>
+        <div class="navigation absolute top-[50%] left-[50%] flex justify-between w-full">
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(-1)">&#10095;</a>
         </div>
       </div>
     </section>
@@ -226,8 +306,8 @@
             </div>
           </div>
 
-          <div class="py-10">
-            <div class="grid grid-cols-3 gap-10">
+          <div class="py-10 mx">
+            <div class="grid grid-cols-3 gap-10 items-center">
               <div class="shadow-2xl w-[400px] h-[400px] rounded-[20px] p-10">
                 <div class=""><img src="/assets/bph.svg" alt="" /></div>
                 <h2 class="font-bold text-[20px] font-raleway py-6">Badan Pengurus Harian</h2>
