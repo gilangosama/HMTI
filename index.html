@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HMTI</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./tailwind.config.js"></script>
+    <link rel="stylesheet" href="./icofonts.css" />
+    <style type="text/tailwindcss">
+      @layer utilities {
+        body {
+          overflow-x: hidden;
+        }
+        nav a {
+          @apply text-white text-2xl lg:text-base lg:font-normal  hover:text-primary font-raleway;
+        }
+
+        nav a.active {
+          @apply text-white;
+        }
+
+        nav > ul > li {
+          @apply p-4;
+        }
+
+        .slide {
+          background-image: url('img/slide.svg');
+          background-size: 100%;
+        }
+
+        .mobile-btn .close {
+          @apply hidden;
+        }
+        .mobile-btn.active .bar {
+          @apply hidden;
+        }
+        .mobile-btn.active .close {
+          @apply block;
+        }
+        .mobile-btn svg {
+          width: 32px;
+          height: 32px;
+        }
+
+        .submenu {
+          @apply absolute m-0 py-1 bg-primary invisible opacity-0 transition-all ease-in-out;
+        }
+
+        .submenu a {
+          @apply text-white min-w-[135px] w-full block py-1 px-4 hover:bg-secondary hover:text-white;
+        }
+
+        .has-child:hover .submenu {
+          @apply visible opacity-100;
+        }
+
+        .has-child {
+          @apply relative cursor-pointer;
+        }
+        .has-child > span.caret {
+          @apply absolute h-[26px] w-[12px] -right-0 top-1/2 transform -translate-y-1/2;
+          content: url('data:image/svg+xml;charset=UTF-8, <svg width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.666992 0.666748L4.33366 4.66675L8.00033 0.666748" stroke="white"/></svg>');
+        }
+        .bgc {
+          background: linear-gradient(90.33deg, #1746f9 -0.22%, #1a3ab3 82.88%, #1e2748 113.74%);
+        }
+        @media screen and (max-width: 1024px) {
+          nav {
+            left: -100%;
+            transition: all 0.3s ease-in-out;
+            z-index: ;
+          }
+          nav > ul {
+            @apply pt-10;
+          }
+          nav > ul > li {
+            @apply w-full p-0;
+          }
+          .has-child {
+            @apply overflow-hidden;
+          }
+          .has-child > span.caret {
+            @apply invert-0 top-4;
+          }
+          .has-child.active .submenu {
+            @apply visible opacity-100 max-h-[1000px];
+          }
+          nav .submenu {
+            @apply visible opacity-100 relative w-full max-h-0;
+          }
+          nav.active {
+            left: 0;
+          }
+          footer {
+            z-index: -1;
+          }
+        }
+
+        @media screen and (max-width: 750px) {
+          nav {
+            left: -100%;
+            transition: all 0.3s ease-in-out;
+          }
+          nav > ul {
+            @apply pt-10;
+          }
+          nav > ul > li {
+            @apply w-full p-0;
+          }
+          .has-child {
+            @apply overflow-hidden;
+          }
+          .has-child > span.caret {
+            @apply invert-0 top-4;
+          }
+          .has-child.active .submenu {
+            @apply visible opacity-100 max-h-[1000px];
+          }
+          nav .submenu {
+            @apply visible opacity-100 relative w-full max-h-0;
+          }
+          nav.active {
+            left: 0;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="bgc">
+      <section class="container px-5 xl:px-0 mx-auto">
+        <section id="topbar" class="flex justify-between gap-10 items-center py-5">
+          <div id="left-side" class="flex gap-80 items-center justify-between">
+            <div class="flex gap-4 items-center font-nunito">
+              <img class="w-[60px] border rounded-full" src="/assets/logo_hmti.jpg" alt="" />
+              <h1 class="text-white text-[30px] font-bold">HMTI</h1>
+            </div>
+
+            <nav class="fixed w-full h-full top-0 p-10 lg:p-0 lg:relative bg-primary lg:bg-transparent">
+              <ul class="flex flex-col lg:flex-row gap-y-5 gap-x-2 items-center text-white">
+                <li class="has-child">
+                  <a href="#">Tentang</a>
+                  <span class="caret"></span>
+                  <ul class="submenu">
+                    <li><a href="#">Logo</a></li>
+                    <li><a href="#">Penjelasan Logo</a></li>
+                    <li><a href="#">Visi Misi</a></li>
+                    <li><a href="#">Struktur Organisasi</a></li>
+                  </ul>
+                </li>
+                <li class="has-child">
+                  <a href="#">Galeri</a>
+                  <span class="caret"></span>
+                  <ul class="submenu">
+                    <li><a href="#">Dokumentasi Kegiatan</a></li>
+                    <li><a href="#">Content</a></li>
+                  </ul>
+                </li>
+                <li class="has-child">
+                  <a href="#">Event</a>
+                  <span class="caret"></span>
+                  <ul class="submenu">
+                    <li><a href="#">Sentimeter</a></li>
+                    <li><a href="#">HMTI E-Sport</a></li>
+                    <li><a href="#">Tech Fest</a></li>
+                  </ul>
+                </li>
+                <li class="has-child">
+                  <a href="#">Informasi</a>
+                  <span class="caret"></span>
+                  <ul class="submenu">
+                    <li><a href="#">Berita</a></li>
+                    <li><a href="#">Kegiatan</a></li>
+                    <li><a href="#">Lomba</a></li>
+                    <li><a href="#">Magang</a></li>
+                    <li><a href="#">Presentasi</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <button class="Kontak py-2 px-5 bg-[#FFD900] rounded-full text-[15px] font-raleway font-semibold max-sm:hidden">Kontak Kami</button>
+          <button class="mobile-btn fixed right-6 top-8 invert lg:static lg:hidden">
+            <svg class="bar" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 17H19M5 12H19M5 7H19" stroke="black" stroke-width="2.01562" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <svg class="close" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M13.6439 11.9998L18.657 6.99835C18.8765 6.77882 18.9998 6.48107 18.9998 6.17061C18.9998 5.86014 18.8765 5.5624 18.657 5.34286C18.4374 5.12333 18.1397 5 17.8292 5C17.5187 5 17.221 5.12333 17.0015 5.34286L12 10.356L6.99857 5.34286C6.77904 5.12333 6.48129 5 6.17083 5C5.86036 5 5.56261 5.12333 5.34308 5.34286C5.12355 5.5624 5.00022 5.86014 5.00022 6.17061C5.00022 6.48107 5.12355 6.77882 5.34308 6.99835L10.3562 11.9998L5.34308 17.0012C5.23381 17.1096 5.14708 17.2386 5.08789 17.3806C5.0287 17.5227 4.99823 17.6751 4.99823 17.829C4.99823 17.9829 5.0287 18.1353 5.08789 18.2773C5.14708 18.4194 5.23381 18.5484 5.34308 18.6567C5.45146 18.766 5.58041 18.8527 5.72247 18.9119C5.86454 18.9711 6.01692 19.0016 6.17083 19.0016C6.32473 19.0016 6.47711 18.9711 6.61918 18.9119C6.76125 18.8527 6.89019 18.766 6.99857 18.6567L12 13.6436L17.0015 18.6567C17.1098 18.766 17.2388 18.8527 17.3809 18.9119C17.5229 18.9711 17.6753 19.0016 17.8292 19.0016C17.9831 19.0016 18.1355 18.9711 18.2776 18.9119C18.4196 18.8527 18.5486 18.766 18.657 18.6567C18.7662 18.5484 18.853 18.4194 18.9121 18.2773C18.9713 18.1353 19.0018 17.9829 19.0018 17.829C19.0018 17.6751 18.9713 17.5227 18.9121 17.3806C18.853 17.2386 18.7662 17.1096 18.657 17.0012L13.6439 11.9998Z"
+                fill="#000"
+              />
+            </svg>
+          </button>
+        </section>
+      </section>
+    </header>
+
+    <section>
+      <div class="container mx-auto">
+        <div class="h-full w-full text-center">
+          <div class="py-10 h-[600px]">
+            <img src="/assets/img-slide-1.jpg" alt="" />
+            <h1 class="relative -top-96 z-10 font-bold text-white font-raleway text-[40px]">Selamat Data di Website HMTI</h1>
+            <h2 class="relative -top-96 font-medium text-white font-raleway text-[20px]">Himpunan Mahasiswa Teknik Informatika</h2>
+            <h2 class="relative -top-96 font-medium text-white font-raleway text-[20px]">Universitas Nusa Putra</h2>
+            <button class="flex items-center gap-2 Kontak py-2 px-6 bg-primary rounded-full text-[15px] font-raleway font-semibold text-white relative -top-80 mx-auto">Selengkapnya<img src="/assets/arrow.svg" alt="" /></button>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="py-10 w-full h-full">
+        <div class="container mx-auto">
+          <div class="flex justify-between items-center">
+            <h1 class="font-bold font-raleway text-[36px] text-three w-[100px]">Divisi Kepengurusan</h1>
+            <div class="">
+              <button class="flex items-center gap-2 Kontak py-2 px-6 bg-primary rounded-full text-[15px] font-raleway font-semibold max-sm:hidden text-white">Selengkapnya<img src="/assets/arrow.svg" alt="" /></button>
+            </div>
+          </div>
+
+          <div class="py-10">
+            <div class="grid grid-cols-3 gap-10">
+              <div class="shadow-2xl w-[400px] h-[400px] rounded-[20px] p-10">
+                <div class=""><img src="/assets/bph.svg" alt="" /></div>
+                <h2 class="font-bold text-[20px] font-raleway py-6">Badan Pengurus Harian</h2>
+                <p class="font-medium font-raleway text-[16px] text-[#1E2748] opacity-70">
+                  Lorem ipsum dolor sit amet consectetur. Morbi nec amet amet in justo arcu. <br />
+                  Isian..... <br />
+                  Isian..... <br />
+                  Isian..... <br />
+                  Isian.....
+                </p>
+                <div class="cursor-pointer relative -right-60 bottom-12"><img src="/assets/arrow2.svg" alt="" /></div>
+              </div>
+
+              <div class="shadow-2xl w-[400px] h-[400px] rounded-[20px] p-10">
+                <div class=""><img src="/assets/danus.svg" alt="" /></div>
+                <h2 class="font-bold text-[20px] font-raleway py-6">Dana Usaha</h2>
+                <p class="font-medium font-raleway text-[16px] text-[#1E2748] opacity-70">
+                  Lorem ipsum dolor sit amet consectetur. Morbi nec amet amet in justo arcu. <br />
+                  Isian..... <br />
+                  Isian..... <br />
+                  Isian..... <br />
+                  Isian.....
+                </p>
+                <div class="cursor-pointer relative -right-60 bottom-12"><img src="/assets/arrow2.svg" alt="" /></div>
+              </div>
+
+              <div class="shadow-2xl w-[400px] h-[400px] rounded-[20px] p-10">
+                <div class=""><img src="/assets/kader.svg" alt="" /></div>
+                <h2 class="font-bold text-[20px] font-raleway py-6">Kaderisasi</h2>
+                <p class="font-medium font-raleway text-[16px] text-[#1E2748] opacity-70">
+                  Lorem ipsum dolor sit amet consectetur. Morbi nec amet amet in justo arcu. <br />
+                  Isian..... <br />
+                  Isian..... <br />
+                  Isian..... <br />
+                  Isian.....
+                </p>
+                <div class="cursor-pointer relative -right-60 bottom-12"><img src="/assets/arrow2.svg" alt="" /></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="w-full h-full py-14">
+      <div class="container mx-auto">
+        <div class="flex justify-evenly items-center">
+          <div class=""><img src="/assets/logo-about.svg" alt="" /></div>
+          <div class="w-[500px] font-raleway">
+            <h1 class="font-bold text-2xl text-[#1E2748]">Tentang Kami</h1>
+            <p class="text-[14px] py-6 text-[#1E2748] opacity-70">HMTI adalah Himpunan Mahasiswa Teknnik Informatika Universitas Nusa Putra yang berdiri pada tanggal 23 September 2013</p>
+            <button class="flex items-center gap-2 Kontak py-2 px-6 bg-primary rounded-full text-[15px] font-raleway font-semibold max-sm:hidden text-white">Selengkapnya<img src="/assets/arrow.svg" alt="" /></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full h-full py-14">
+      <div class="container mx-auto">
+        <div class="flex bg-secondary rounded-[20px] justify-items-center py-10">
+          <img class="mx-auto" src="/assets/70.png" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full h-full py-14">
+      <div class="container mx-auto">
+        <div class="grid grid-cols-3 mx-auto">
+          <div class="items-center">
+            <div class="border rounded-[20px] w-[400px] h-[400px]"></div>
+            <div class="relative -top-8 bg-four w-[300px] rounded-[20px] text-center text-white text-[#E8E8E8] py-3 font-raleway mx-auto">
+              <h2 class="font-bold">Sahrul Ismail Usman</h2>
+              <h3 class="text-sm">Ketua Himpunan</h3>
+            </div>
+          </div>
+          <div class="items-center">
+            <div class="border rounded-[20px] w-[400px] h-[400px]"></div>
+            <div class="relative -top-8 bg-four w-[300px] rounded-[20px] text-center text-white text-[#E8E8E8] py-3 font-raleway mx-auto">
+              <h2 class="font-bold">Sahrul Ismail Usman</h2>
+              <h3 class="text-sm">Ketua Himpunan</h3>
+            </div>
+          </div>
+          <div class="items-center">
+            <div class="border rounded-[20px] w-[400px] h-[400px]"></div>
+            <div class="relative -top-8 bg-four w-[300px] rounded-[20px] text-center text-white text-[#E8E8E8] py-3 font-raleway mx-auto">
+              <h2 class="font-bold">Sahrul Ismail Usman</h2>
+              <h3 class="text-sm">Ketua Himpunan</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="">
+      <div class="bgc p-14 w-full h-full">
+        <div class="container mx-auto">
+          <div class="flex gap-40">
+            <div class="text-white">
+              <h1 class="text-[30px] font-bold font-nunito">HMTI</h1>
+              <p class="w-[200px] py-6 font-raleway">Jl. Raya Cibatu Cisaat No.21, Cibolang Kaler, Kec. Cisaat, Kabupaten Sukabumi, Jawa Barat 43152</p>
+              <p>Email: hmti.nusaputra@ic.id</p>
+              <p>Website: hmti.nusaputra.ic.id</p>
+              <div class="flex gap-4 py-8">
+                <img src="/img/icon_fb.svg" alt="" />
+                <img src="/img/icon_ig.svg" alt="" />
+                <img src="/img/icon_yt.svg" alt="" />
+              </div>
+            </div>
+
+            <div class="text-white font-raleway">
+              <h1 class="text-[25px] font-bold">Informasi</h1>
+              <ul class="text-[20px] py-6 grid gap-6">
+                <li><a href="#">Berita</a></li>
+                <li><a href="#">Kegiatan</a></li>
+                <li><a href="#">Lomba</a></li>
+                <li><a href="#">Magang</a></li>
+                <li><a href="#">Presentasi</a></li>
+              </ul>
+            </div>
+
+            <div class="text-white font-raleway">
+              <h1 class="text-[25px] font-bold">Kontak</h1>
+              <ul class="text-[20px] py-6 grid gap-6">
+                <li><a href="#">Admin</a></li>
+                <li><a href="#">Demisioner</a></li>
+                <li><a href="#">Kampus</a></li>
+                <li><a href="#">Kritik Saran</a></li>
+              </ul>
+            </div>
+
+            <div class="text-white font-raleway">
+              <h1 class="text-[25px] font-bold">Tautan Penting</h1>
+              <ul class="text-[20px] py-6 grid gap-6">
+                <li><a href="#">Sentimeter</a></li>
+                <li><a href="#">HMTI E-Sport</a></li>
+                <li><a href="#">Tech Fest</a></li>
+                <li><a href="#">Danus</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="border-b-2"></div>
+          <div class="text-white text-center pt-6 font-raleway">
+            <p>Himpunan Mahasiswa Teknik Infotmatika © 2022 All Rights Reserved</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./app.js"></script>
+  </body>
+</html>
